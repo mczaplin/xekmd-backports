@@ -25,6 +25,37 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
+      - name: Dependancies
+        run: | 
+          apt update
+          apt install -y \
+          libasound2-dev \
+          libatomic1 \
+          libcairo-dev \
+          libcurl4-openssl-dev \
+          libdrm-dev \
+          libdrm-intel1 \
+          libdw-dev \
+          libelf-dev \
+          libgsl-dev \
+          libiberty-dev \
+          libjson-c-dev \
+          libkmod-dev \
+          liblzma-dev \
+          libncurses-dev \
+          liboping-dev \
+          libpci-dev \
+          libpciaccess-dev \
+          libpixman-1-dev \
+          libprocps-dev \
+          libssl-dev \
+          libtool \
+          libudev-dev \
+          libunwind-dev \
+          libxmlrpc-core-c3-dev \
+          libxrandr-dev \
+          libxv-dev \
+
       # Runs a single command using the runners shell
       - name: Apply patches
         run: | 

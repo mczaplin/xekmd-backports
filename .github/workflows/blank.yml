@@ -30,7 +30,7 @@ jobs:
         run: | 
           git config --global user.email "you@example.com"
           git config --global user.name "LGCI"
-          ./backport.sh -c
+          ./backport.sh -c base
 
       - name: Checkout common kconfig
         run: |

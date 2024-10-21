@@ -34,13 +34,14 @@ jobs:
 
       - name: Checkout common kconfig
         run: |
-          git clone https://gitlab.freedesktop.org/drm/xe/ci.git .ci
-          cp .ci/kernel/kconfig kernel/.config
           cd kernel
-          make olddefconfig
+          git clone https://gitlab.freedesktop.org/drm/xe/ci.git .ci
+          mkdir -p build64-default
+          cp .ci/kernel/kconfig build64-default/.config
+          make O=build64-default olddefconfig
 
       # Runs a set of commands using the runners shell
       - name: Build kernel
         run: |
           cd kernel
-          make -j$(nproc)
+          make O=build64-default -j$(nproc)

@@ -54,7 +54,7 @@ jobs:
         run: | 
           git config --global user.email "you@example.com"
           git config --global user.name "LGCI"
-          ./backport.sh -c ${{ matrix.tree }}
+          ./backport.sh -c ${{ matrix.kernel }}
 
       - name: Checkout common kconfig
         run: |

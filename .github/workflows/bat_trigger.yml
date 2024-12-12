@@ -1,0 +1,15 @@
+name: Testing
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: lgci-runner
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Trigger testing
+        run: source trigger_testing.sh

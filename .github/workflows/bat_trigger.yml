@@ -12,4 +12,4 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Trigger testing
-        run: trigger_testing.sh $(git rev-parse HEAD)
+        run: url -X POST ${{ secrets.SERVER_URL }} --user ${{ secrets.USER }}:${{ secrets.TOKEN }} --data-urlencode "TARGET_COMMIT=$(git rev-parse HEAD)" --data-urlencode "DEBUG=false"

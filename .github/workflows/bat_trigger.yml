@@ -13,5 +13,5 @@ jobs:
 
       - name: Queue testing
         run: |
-          SHA=$(git rev-parse {{ github.sha }}~1)
+          SHA=$(git rev-parse ${{ github.sha }}~1)
           curl -X POST ${{ secrets.SERVER_URL }} --user ${{ secrets.USER }}:${{ secrets.TOKEN }} --data-urlencode "TARGET_COMMIT=$SHA" --data-urlencode "DEBUG=false"

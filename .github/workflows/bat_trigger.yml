@@ -1,4 +1,4 @@
-name: Testing
+name: BAT Testing
 
 on:
   pull_request:
@@ -11,5 +11,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Trigger testing
+      - name: Queue testing
         run: curl -X POST ${{ secrets.SERVER_URL }} --user ${{ secrets.USER }}:${{ secrets.TOKEN }} --data-urlencode "TARGET_COMMIT=$(git rev-parse HEAD)" --data-urlencode "DEBUG=false"

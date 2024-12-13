@@ -6,10 +6,10 @@ on:
 
 jobs:
   test:
-    runs-on: lgci-runner
+    runs-on: mczaplin-gha-runner
 
     steps:
       - uses: actions/checkout@v4
 
       - name: Trigger testing
-        run: source trigger_testing.sh
+        run: trigger_testing.sh $(git rev-parse HEAD)

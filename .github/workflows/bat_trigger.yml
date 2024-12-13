@@ -13,5 +13,4 @@ jobs:
 
       - name: Queue testing
         run: |
-          SHA=$(git rev-parse HEAD~1)
-          curl -X POST ${{ secrets.SERVER_URL }} --user ${{ secrets.USER }}:${{ secrets.TOKEN }} --data-urlencode "TARGET_COMMIT=${SHA}" --data-urlencode "DEBUG=false"
+          curl -X POST ${{ secrets.SERVER_URL }} --user ${{ secrets.USER }}:${{ secrets.TOKEN }} --data-urlencode "TARGET_COMMIT={{ github.event.pull_request.head.sha }}" --data-urlencode "DEBUG=false"

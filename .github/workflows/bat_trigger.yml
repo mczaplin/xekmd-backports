@@ -15,6 +15,5 @@ jobs:
 
       - name: Queue testing
         run: |
-          git log -3
-          COMMIT=$(git rev-parse HEAD~1)
+          COMMIT=$(git rev-parse HEAD)
           curl -X POST ${{ secrets.SERVER_URL }} --user ${{ secrets.USER }}:${{ secrets.TOKEN }} --data-urlencode "TARGET_COMMIT=$COMMIT" --data-urlencode "DEBUG=false"

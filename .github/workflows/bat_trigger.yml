@@ -10,7 +10,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
       - name: Queue testing
         run: |
-          curl -X POST ${{ secrets.SERVER_URL }} --user ${{ secrets.USER }}:${{ secrets.TOKEN }} --data-urlencode "TARGET_COMMIT=${{ github.sha }}" --data-urlencode "DEBUG=false"
+          COMMIT=$(git rev-parse HEAD~1)
+          curl -X POST ${{ secrets.SERVER_URL }} --user ${{ secrets.USER }}:${{ secrets.TOKEN }} --data-urlencode "TARGET_COMMIT=$COMMIT" --data-urlencode "DEBUG=false"

@@ -6,7 +6,7 @@ on:
     types: [ "opened", "edited"]
 
 jobs:
-  test:
+  Queued:
     runs-on: mczaplin-gha-runner
 
     steps:

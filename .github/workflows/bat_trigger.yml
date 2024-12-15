@@ -1,9 +1,8 @@
 name: BAT Testing
 
 on:
-  pull_request_target:
+  pull_request:
     branches: [ "main" ]
-    types: [ "opened", "edited"]
 
 jobs:
   Queued:
